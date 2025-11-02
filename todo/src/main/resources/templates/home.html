@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+      layout:decorate="layouts/defaultTemp">
+<head>
+    <title th:text="${title}">Home</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="container mt-4">
+
+            <!-- Page header and Add Task button -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 th:text="${title}">Home</h2>
+                <a href="/add" class="btn btn-success btn-sm">+ Add Task</a>
+            </div>
+
+            <!-- Task List -->
+            <ul class="list-group">
+                <li class="list-group-item" th:each="task : ${tasks}">
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <!-- Task info -->
+                        <div class="text-start">
+                            <h5 th:text="${task.title}" class="mb-1"></h5>
+                            <small class="text-muted" th:text="${task.status}"></small>
+                        </div>
+
+                        <!-- Action buttons -->
+                        <div>
+                            <a th:href="@{/edit(id=${task.id})}" class="btn btn-primary btn-sm me-1">Edit</a>
+
+                            <form th:action="@{/delete}" method="post" style="display:inline;">
+                                <input type="hidden" name="id" th:value="${task.id}" />
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Are you sure you want to delete this task?');">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</body>
+</html>

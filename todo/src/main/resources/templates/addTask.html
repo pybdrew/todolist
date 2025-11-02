@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemp">
+<head>
+    <title th:text="${title}">Add Task</title>
+</head>
+<body>
+    <div layout:fragment="content" class="container mt-4" style="max-width: 600px;">
+        <h2 class="mb-4 text-center" 
+            th:text="${task.id} != null ? 'Edit Task' : 'Add Task'"></h2>
+
+        <form th:action="${task.id} != null ? @{/edit} : @{/add}" method="post" th:object="${task}">
+            <input type="hidden" th:if="${task.id}" th:field="*{id}" />
+
+            <!-- Title -->
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" th:field="*{title}" placeholder="Enter task title" required>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" th:field="*{description}" rows="3" placeholder="Enter task details"></textarea>
+            </div>
+
+            <!-- Status -->
+            <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <select class="form-select" id="status" th:field="*{status}" required>
+                    <option disabled value="">Choose...</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+
+            <!-- Submit -->
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary"
+                        th:text="${task.id} != null ? 'Update Task' : 'Add Task'"></button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
