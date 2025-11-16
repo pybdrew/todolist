@@ -102,7 +102,7 @@
 				<version>2.7.0</version>
 				<configuration>
 					<version>1</version>
-					<projectId>GCLOUD_CONFIG</projectId>
+					<projectId>to-do-list-478320</projectId>
 				</configuration>
 			</plugin>
 		</plugins>
