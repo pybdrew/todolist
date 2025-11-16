@@ -98,7 +98,7 @@
 			<!-- For Google App Engine -->
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>appending-maven-plugin</artifactId>
+				<artifactId>appengine-maven-plugin</artifactId>
 				<version>2.7.0</version>
 				<configuration>
 					<version>1</version>
