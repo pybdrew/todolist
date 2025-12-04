@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+    commands:
+      - echo Installing Maven
+      - mvn --version
+  build:
+    commands:
+      - echo Starting Maven build
+      - cd my-app
+      - mvn -B package
+artifacts:
+  files:
+    - todo/target/*.jar
