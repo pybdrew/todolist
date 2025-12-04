@@ -12,10 +12,7 @@ phases:
       - echo Starting Maven build
       - pwd
       - ls -la
-      - cd todo
-      - pwd
-      - ls -la
-      - mvn -B package
+      - mvn -B -f todo/pom.xml package
 artifacts:
   files:
     - todo/target/*.jar
