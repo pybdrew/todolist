@@ -6,12 +6,12 @@ phases:
       java: corretto-17
     commands:
       - echo "Installing Maven"
-      - mvn --version
+      - ./todo/mvnw --version
   build:
     commands:
       - echo "Starting Maven build"
       - cd todo
-      - mvn -B package
+      - ./mvnw -B package
 artifacts:
   files:
     - todo/target/*.jar
