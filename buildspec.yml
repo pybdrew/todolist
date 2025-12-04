@@ -7,11 +7,8 @@ phases:
     commands:
       - echo Installing Maven
       - mvn --version
-  build:
+  build: 
     commands:
-      - echo Starting Maven build
+      - echo Starting build...
       - cd todo
       - mvn -B package
-artifacts:
-  files:
-    - todo/target/*.jar
