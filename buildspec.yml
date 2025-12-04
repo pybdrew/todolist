@@ -10,7 +10,9 @@ phases:
   build:
     commands:
       - echo Starting Maven build
+      - ls -la
       - cd todo
+      - ls -la
       - mvn -B package
 artifacts:
   files:
