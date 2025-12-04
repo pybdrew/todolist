@@ -1,14 +1,6 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      java: corretto-17
+  build:
     commands:
-      - echo Installing Maven
-      - mvn --version
-  build: 
-    commands:
-      - echo Starting build...
-      - cd todo
-      - mvn -B package
+      -  echo "Hello World"
